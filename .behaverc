@@ -1,0 +1,4 @@
+[behave]
+paths = deepsource/tests/features
+junit_directory = reports
+junit = yes

@@ -1,0 +1,12 @@
+.idea/
+build/
+dist/
+*.egg-info/
+*.pyc
+__CACHE__
+__PYCACHE__
+__pycache__
+Pipfile.lock
+reports/
+venv/
+.env
