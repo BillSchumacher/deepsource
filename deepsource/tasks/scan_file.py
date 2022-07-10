@@ -1,3 +1,4 @@
+import itertools
 from deepsource.celery_app import app
 from deepsource.util.file_operations import parse_code, get_file_content
 
@@ -12,6 +13,21 @@ def scan_file(file_path):
         '\n'.join(get_file_content(file_path))
     )
     # print(imports)
+    sus_imports = [
+        'pickle',
+        'ast',
+        'importlib',
+        'shlex',
+        'subprocess',
+        'sys',
+        'tempfile',
+        'zipfile'
+    ]
+    for (key, value), _import in itertools.product(imports.items(), sus_imports):
+        if not _import:
+            continue
+        if (key and _import in key) or (value and _import in value):
+            print(f"Suspicious import: [{_import}] @ line(s) {[_imports[0] for _imports in value]}.")
     # print(calls)
     # print(assignments)
     if syntax_error:
