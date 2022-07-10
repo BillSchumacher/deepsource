@@ -18,7 +18,7 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Topic :: Security",
     ],
-    install_requires=["celery"],
+    install_requires=["celery", "redis"],
     version="0.1.0",
     zip_safe=False,
 )
