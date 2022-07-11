@@ -1,18 +1,19 @@
 import ast
 
-from deepsource.parse.ttuple import get_tuple_identifier
-from deepsource.parse.joined_str import get_joined_str_identifier
-from deepsource.parse.ddict import get_dict_identifier
-from deepsource.parse.binop import get_binop_identifier
-from deepsource.parse.genexp import get_genexp_identifier
-from deepsource.parse.llist import get_list_identifier
-from deepsource.parse.subscript import get_subscript_identifier
-
-from deepsource.exceptions.parsing import UnhandledCallIdentifierException,\
-    UnhandledCallArgException
+from deepsource.exceptions.parsing import (
+    UnhandledCallArgException,
+    UnhandledCallIdentifierException,
+)
 from deepsource.parse.attribute import get_attribute_identifier
+from deepsource.parse.binop import get_binop_identifier
 from deepsource.parse.constant import get_constant_identifier
+from deepsource.parse.ddict import get_dict_identifier
+from deepsource.parse.genexp import get_genexp_identifier
+from deepsource.parse.joined_str import get_joined_str_identifier
+from deepsource.parse.llist import get_list_identifier
 from deepsource.parse.name import get_name_identifier
+from deepsource.parse.subscript import get_subscript_identifier
+from deepsource.parse.ttuple import get_tuple_identifier
 
 
 def get_call_identifier(node: ast.Call) -> str:
@@ -40,7 +41,7 @@ def parse_args(node):
             case ast.Call:
                 value = get_call_identifier(arg)
             case ast.Lambda:
-                value = 'lambda'
+                value = "lambda"
             case ast.Subscript:
                 value = get_subscript_identifier(arg)
             case ast.BinOp:

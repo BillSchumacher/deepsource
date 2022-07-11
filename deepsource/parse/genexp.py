@@ -1,14 +1,10 @@
 import ast
 
-from deepsource.parse.compare import get_compare_identifier
-
-from deepsource.parse.ttuple import get_tuple_identifier
-
 from deepsource.exceptions.parsing import UnhandledGenExpException
-
-from deepsource.parse.name import get_name_identifier
-
+from deepsource.parse.compare import get_compare_identifier
 from deepsource.parse.constant import get_constant_identifier
+from deepsource.parse.name import get_name_identifier
+from deepsource.parse.ttuple import get_tuple_identifier
 
 
 def get_genexp_identifier(node: ast.GeneratorExp) -> str:
@@ -21,6 +17,7 @@ def get_genexp_identifier(node: ast.GeneratorExp) -> str:
             return get_name_identifier(node_elt)
         case ast.Call:
             from deepsource.parse.call import get_call_identifier
+
             return get_call_identifier(node_elt)
         case ast.Tuple:
             return get_tuple_identifier(node_elt)

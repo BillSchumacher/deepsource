@@ -2,10 +2,9 @@ import ast
 from typing import Any
 
 from deepsource.exceptions.parsing import UnhandledJoinedStrException
+from deepsource.parse.constant import get_constant_identifier
 from deepsource.parse.formatted_value import get_formatted_value_identifier
 from deepsource.parse.name import get_name_identifier
-
-from deepsource.parse.constant import get_constant_identifier
 
 
 def get_joined_str_identifier(node: ast.JoinedStr) -> Any:

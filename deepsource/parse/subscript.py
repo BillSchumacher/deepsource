@@ -1,11 +1,8 @@
 import ast
 
-from deepsource.parse.binop import get_binop_identifier
-
-from deepsource.parse.constant import get_constant_identifier
-
 from deepsource.exceptions.parsing import UnhandledSubscriptIdentifierException
-
+from deepsource.parse.binop import get_binop_identifier
+from deepsource.parse.constant import get_constant_identifier
 from deepsource.parse.name import get_name_identifier
 from deepsource.parse.slice import get_slice_identifier
 

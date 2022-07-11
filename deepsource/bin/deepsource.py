@@ -1,15 +1,15 @@
+import multiprocessing
+import sys
 from time import sleep
 from typing import List
 
 from deepsource.celery_app import app
 from deepsource.util.file_operations import gather_file_paths
 
-import multiprocessing
-import sys
-
 
 def start_scanning(paths: List[str] = None) -> list:
     from deepsource.tasks.scan_file import scan_file
+
     task_ids = []
     for path in paths:
         task_id = scan_file.delay(path)
@@ -27,10 +27,15 @@ def start_worker():
 
 
 def deepsource():
-    valid_extensions = ['py', ]  # '.pyc', '.pyo', '.pyw', '.pyx', '.pxd', '.pxi']
+    valid_extensions = [
+        "py",
+    ]  # '.pyc', '.pyo', '.pyw', '.pyx', '.pxd', '.pxi']
 
-    paths = [path for path in gather_file_paths(sys.argv[1])
-             if '.' in path and path.split('.')[-1] in valid_extensions]
+    paths = [
+        path
+        for path in gather_file_paths(sys.argv[1])
+        if "." in path and path.split(".")[-1] in valid_extensions
+    ]
 
     celery_process = multiprocessing.Process(target=start_worker, args=())
     celery_process.start()

@@ -1,7 +1,6 @@
 import ast
 
 from deepsource.parse.constant import get_constant_identifier
-
 from deepsource.parse.name import get_name_identifier
 
 

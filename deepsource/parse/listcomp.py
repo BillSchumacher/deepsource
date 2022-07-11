@@ -2,10 +2,8 @@ import ast
 
 from deepsource.exceptions.parsing import UnhandledListCompException
 from deepsource.parse.call import get_call_identifier
-
-from deepsource.parse.name import get_name_identifier
-
 from deepsource.parse.constant import get_constant_identifier
+from deepsource.parse.name import get_name_identifier
 
 
 def get_listcomp_identifier(node: ast.ListComp) -> str:

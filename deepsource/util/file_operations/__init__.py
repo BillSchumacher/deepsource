@@ -18,7 +18,7 @@ def get_file_content(file_path: str) -> list[str]:
     """
     Read a requirements file and return a list of all the lines.
     """
-    with open(file_path, 'r') as f:
+    with open(file_path, "r") as f:
         return f.readlines()
 
 

@@ -1,9 +1,8 @@
 import ast
 
-from deepsource.parse.name import get_name_identifier
-
 from deepsource.exceptions.parsing import UnhandledAwaitException
 from deepsource.parse.call import get_call_identifier
+from deepsource.parse.name import get_name_identifier
 
 
 def get_await_identifier(node: ast.Await) -> str:

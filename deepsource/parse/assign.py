@@ -1,19 +1,19 @@
 import ast
 
-from deepsource.parse.llist import get_list_identifier
-
+from deepsource.exceptions.parsing import (
+    UnhandledAssignException,
+    UnhandledAssignTargetException,
+)
 from deepsource.parse.aawait import get_await_identifier
+from deepsource.parse.attribute import get_attribute_identifier
 from deepsource.parse.binop import get_binop_identifier
 from deepsource.parse.boolop import get_boolop_identifier
 from deepsource.parse.call import get_call_identifier
-
-from deepsource.exceptions.parsing import UnhandledAssignTargetException, \
-    UnhandledAssignException
-from deepsource.parse.attribute import get_attribute_identifier
 from deepsource.parse.constant import get_constant_identifier
 from deepsource.parse.ddict import get_dict_identifier
 from deepsource.parse.joined_str import get_joined_str_identifier
 from deepsource.parse.listcomp import get_listcomp_identifier
+from deepsource.parse.llist import get_list_identifier
 from deepsource.parse.name import get_name_identifier
 from deepsource.parse.subscript import get_subscript_identifier
 from deepsource.parse.ttuple import get_tuple_identifier
@@ -48,7 +48,7 @@ def get_assign_value(node):
             value = get_tuple_identifier(node_value)
         case ast.IfExp:
             # TODO: has a body attr, maybe check that too. skipping for now
-            value = 'ifexp'
+            value = "ifexp"
             # print(node_value, dir(node_value))
             # raise UnhandledAssignException(f"{node.value}")
         case ast.JoinedStr:

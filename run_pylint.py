@@ -4,9 +4,7 @@
 """
 import subprocess
 
-cmd = (
-    "pylint deepsource"
-)
+cmd = "pylint deepsource"
 try:
     subprocComplete = subprocess.run(
         cmd, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE

@@ -2,7 +2,7 @@ import ast
 
 from deepsource.parse.assign import parse_assign
 from deepsource.parse.call import parse_call
-from deepsource.parse.imports import parse_import_from, parse_import
+from deepsource.parse.imports import parse_import, parse_import_from
 
 
 def parse_ast(node, imports, calls, assignments):
